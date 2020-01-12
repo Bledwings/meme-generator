@@ -1,6 +1,12 @@
 .memetext{
 	font-size: 20px;
 	color: green;
+	font-family: Comic Sans Ms, Helvetica, sans-serif;
+}
+
+.title{
+	font-family: Comic Sans Ms, Helvetica, sans-serif;
+	font-size: 30px;
 }
 
 #canvas{
