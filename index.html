@@ -8,8 +8,11 @@
 	<div class="memetext">			<!--text boxes for user to enter text-->
 		<label for="toptext">Top image text:</label>
 		<h1> <textarea	id = "toptext"> </textarea> </h1>
+		<p>Top text size: <input type="range" id="topsize" min = "0.05" max = "0.25" value="0.15" step="0.01"></p>
 		<label for="bottomtext">Bottom image text:</label>
 		<h2> <textarea	id = "bottomtext" > </textarea> </h2>
+		<p>Bottom text size: <input type="range" id="bottomsize" min = "0.05" max = "0.25" value="0.15" step="0.01"> </p>
+
 	</div>
 
 	<div class="upload">
@@ -29,4 +32,4 @@
 	<script src="generator.js"> </script>
 </body>
 
-</html> 
+</html>
