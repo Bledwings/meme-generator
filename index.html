@@ -5,13 +5,18 @@
 </head>
 
 <body>
+	<div class="title">
+		<h1>Meme Generator</h1>
+	</div>
+
+
 	<div class="memetext">			<!--text boxes for user to enter text-->
 		<label for="toptext">Top image text:</label>
 		<h1> <textarea	id = "toptext"> </textarea> </h1>
-		<p>Top text size: <input type="range" id="topsize" min = "0.05" max = "0.25" value="0.15" step="0.01"></p>
 		<label for="bottomtext">Bottom image text:</label>
 		<h2> <textarea	id = "bottomtext" > </textarea> </h2>
-		<p>Bottom text size: <input type="range" id="bottomsize" min = "0.05" max = "0.25" value="0.15" step="0.01"> </p>
+		<!-- <p>Bottom text size: <input type="range" id="bottomsize" min = "0.05" max = "0.25" value="0.15" step="0.01"> </p> -->
+		<p>Text size: <input type="range" id="topsize" min = "0.05" max = "0.25" value="0.15" step="0.01"></p>
 
 	</div>
 
@@ -27,6 +32,11 @@
 
 	<div class="canvas">
 		<canvas id="canvas"> </canvas>
+		<img id = "canvasImg">
+	</div>
+
+	<div class="download">
+		<button id="downloadbutton">Download meme</button>
 	</div>
 
 	<script src="generator.js"> </script>
