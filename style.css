@@ -1,12 +1,16 @@
 .memetext{
 	font-size: 20px;
-	color: green;
-	font-family: Comic Sans Ms, Helvetica, sans-serif;
+	font-family: Impact, Helvetica, sans-serif;
 }
 
 .title{
-	font-family: Comic Sans Ms, Helvetica, sans-serif;
+	font-family: Impact, Helvetica, sans-serif;
 	font-size: 30px;
+}
+
+.upload{
+	font-family: Impact, Helvetica, sans-serif;
+	font-size: 20px;
 }
 
 #canvas{
