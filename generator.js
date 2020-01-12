@@ -1,33 +1,40 @@
-let topText, bottomText, image, button, canvas, ctx;
+let topText,topSize, bottomText, bottomSize, image, button, canvas, ctx;
 
-function generateMeme(img, topText, bottomText){
+function generateMeme(img, topText, topSize, bottomText, bottomSize){
+	let fontSize;
 	canvas.width = img.width;
 	canvas.height = img.height;
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.drawImage(img, 0, 0);
 
-	let fontSize = canvas.width / 15;
+	fontSize = canvas.width * topSize;
 	ctx.font = fontSize + 'px Impact';
 	ctx.fillStyle = 'white';
 	ctx.strokeStyle = 'black';
-	ctx.lineWidth = fontSize / 20;
 	ctx.textAlign = 'center';
-
+	ctx.lineWidth = fontSize / 20;
+	
 	ctx.textBaseline = 'top';
-	ctx.fillText(topText, canvas.width / 2, 0 , canvas.width); 
-	ctx.strokeText(topText, canvas.width / 2, 0 , canvas.width);
-
-
+	topText.split('\n').forEach(function(t,i){
+		ctx.fillText(t, canvas.width / 2, i * fontSize , canvas.width); 
+		ctx.strokeText(t, canvas.width / 2, i * fontSize , canvas.width);
+	});
+	
 	ctx.textBaseline = 'bottom';
-	ctx.fillText(bottomText, canvas.width / 2, canvas.height , canvas.width); 
-	ctx.strokeText(bottomText, canvas.width / 2, canvas.height , canvas.width);
+    bottomText.split('\n').reverse().forEach(function (t, i) { 
+        ctx.fillText(t, canvas.width / 2, canvas.height - i * fontSize, canvas.width);
+        ctx.strokeText(t, canvas.width / 2, canvas.height - i * fontSize, canvas.width);
+    });
+
 
 }
 
 function make_meme(){
 	topText = document.getElementById("toptext");
+	topSize = document.getElementById("topsize");
 	bottomText = document.getElementById('bottomtext');
+	bottomSize = document.getElementById("bottomsize");
 	image = document.getElementById('image');
 	button = document.getElementById('button');
 	canvas = document.getElementById('canvas');
@@ -42,7 +49,7 @@ function make_meme(){
 		reader.onload = function(){
 			let img = new Image;
 			img.src = reader.result;
-			generateMeme(img, topText.value, bottomText.value);
+			generateMeme(img, topText.value, topSize.value, bottomText.value, bottomSize.value);
 		};
 		reader.readAsDataURL(image.files[0]);
 	});
