@@ -17,9 +17,10 @@ function generateMeme(img, topText, topSize, bottomText){
 	
 	ctx.textBaseline = 'top';
 	topText.split('\n').forEach(function(t,i){
-		ctx.fillText(t, canvas.width / 2, i * fontSize , canvas.width); 
-		ctx.strokeText(t, canvas.width / 2, i * fontSize , canvas.width);
+		ctx.fillText(t, canvas.width / 2, i * fontSize , canvas.width); 		//where to draw text
+		ctx.strokeText(t, canvas.width / 2, i * fontSize , canvas.width);		//outlines for text
 	});
+
 	
 	ctx.textBaseline = 'bottom';
     bottomText.split('\n').reverse().forEach(function (t, i) { 
@@ -28,6 +29,7 @@ function generateMeme(img, topText, topSize, bottomText){
     });
 
 }
+
 
 function make_meme(){
 	topText = document.getElementById("toptext");
@@ -66,4 +68,11 @@ function make_meme(){
 
 }
 
+
+$( function() {
+    $( "#canvas" ).draggable();
+  } );
+
+
 make_meme();
+
