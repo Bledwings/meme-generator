@@ -69,9 +69,9 @@ function make_meme(){
 }
 
 
-$( function() {
-    $( "#canvas" ).draggable();
-  } );
+// $( function() {
+//     $( "#canvas" ).draggable();
+//   } );
 
 
 make_meme();
