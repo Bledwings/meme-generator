@@ -68,5 +68,13 @@ download_img = function(download) {
 }
 
 
+<<<<<<< HEAD
+=======
+// $( function() {
+//     $( "#canvas" ).draggable();
+//   } );
+
+
+>>>>>>> 0667ded0d10b7c65db6b0ced5c31eeab5fa5838d
 make_meme();
 
