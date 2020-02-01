@@ -1,4 +1,3 @@
-let topText,topSize, bottomText, bottomSize, image, generateButton, canvas, downloadbutton, ctx;
 
 function generateMeme(img, topText, topSize, bottomText){
 	let fontSize;
@@ -32,14 +31,14 @@ function generateMeme(img, topText, topSize, bottomText){
 
 
 function make_meme(){
-	topText = document.getElementById("toptext");
-	topSize = document.getElementById("topsize");
-	bottomText = document.getElementById('bottomtext');
-	bottomSize = document.getElementById("bottomsize");
-	image = document.getElementById('image');
-	generateButton = document.getElementById('button');
-	canvas = document.getElementById('canvas');
-	downloadButton = document.getElementById('downloadbutton');
+	var topText = document.getElementById("toptext");
+	var topSize = document.getElementById("topsize");
+	var bottomText = document.getElementById('bottomtext');
+	var bottomSize = document.getElementById("bottomsize");
+	var image = document.getElementById('image');
+	var generateButton = document.getElementById('button');
+	var canvas = document.getElementById('canvas');
+	var downloadButton = document.getElementById('downloadbutton');
 
 	ctx = canvas.getContext('2d');
 
@@ -58,20 +57,15 @@ function make_meme(){
 		reader.readAsDataURL(image.files[0]);
 	});
 
-	// download meme
-
-	downloadButton.addEventListener('click', function(){
-		var image = canvas.toDataURL("image/png").replace("image/png", "application/octet-stream"); 
-		window.location.href=image; 
-	});
-
-
 }
 
 
-$( function() {
-    $( "#canvas" ).draggable();
-  } );
+//function called when download button is clicked.
+download_img = function(download) {					
+	var image = canvas.toDataURL("image/jpg");
+	download.href = image;
+
+}
 
 
 make_meme();

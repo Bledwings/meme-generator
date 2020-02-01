@@ -19,7 +19,7 @@
 
 	<div class="upload">
 		<label for="image">Upload a picture:</label>
-		<input type="file" id="image" accept="image/png, image/jpeg">
+		<input type="file" id="image" accept="image/png, image/jpeg, image/jpg">
 	</div>
 
 	<br>
@@ -45,12 +45,9 @@
 	</div>
 
 	<div class="download">
-		<button id="downloadbutton">Download meme</button>
+		<!-- <button id="downloadbutton">Download meme</button> -->
+		<a id="download" download="meme.jpg" href="" onclick="download_img(this);">Download meme</a>
 	</div>
-
-	<!-- <div class="note">
-		<p> Note: If the downloaded file does not open, rename it as name.png or name.jpeg.</p>
-	</div> -->
 
 
 	<script src="generator.js"> </script>
