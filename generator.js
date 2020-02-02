@@ -36,7 +36,7 @@ function make_meme(){
 	var bottomText = document.getElementById('bottomtext');
 	var bottomSize = document.getElementById("bottomsize");
 	var image = document.getElementById('image');
-	var generateButton = document.getElementById('generate');
+	var generateButton = document.getElementById('button');
 	var canvas = document.getElementById('canvas');
 	var downloadButton = document.getElementById('downloadbutton');
 
@@ -47,7 +47,7 @@ function make_meme(){
 
 
 	//generate meme button
-	// generateButton.addEventListener('click', function(){
+	generateButton.addEventListener('click', function(){
 		let reader = new FileReader();
 		reader.onload = function(){
 			let img = new Image;
@@ -55,14 +55,13 @@ function make_meme(){
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
 		};
 		reader.readAsDataURL(image.files[0]);
-	// });
+	});
 
 }
 
-makeMeme = function(generate) {
-	generate.href = make_meme();
-
-}
+// makeMeme = function(generate) {
+// 	generate.href = make_meme();
+// }
 
 //function called when download button is clicked
 download_img = function(download) {					
@@ -70,12 +69,6 @@ download_img = function(download) {
 	download.href = image;
 
 }
-
-<<<<<<< HEAD
-//so page doesnt have blank space for meme before generation
-canvas.width = 0;
-canvas.height = 0;
-=======
 make_meme();
->>>>>>> 5d16d580f65d9bc2b6dc4644fea8e502d3dcd47c
+
 
