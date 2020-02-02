@@ -1,25 +1,18 @@
-.memetext{
-	font-size: 20px;
-	font-family: Impact, Helvetica, sans-serif;
-}
 
 .title{
 	font-family: Impact, Helvetica, sans-serif;
 	font-size: 30px;
 }
 
-.upload{
-	font-family: Impact, Helvetica, sans-serif;
-	font-size: 20px;
+#download{
+	color: black;
+	text-decoration: none;
 }
 
-
-#download{
+#generate {
 	text-decoration: none;
-	font-family: Impact, Helvetica, sans-serif;
-	font-size: 20px;
 	color: black;
-
+	
 }
 
 #canvas{
@@ -35,5 +28,6 @@ body{
 	background-image: url("https://i.imgur.com/4GshEFp.jpg");
 	background-position: center;
 	background-size: cover;
-	/*background-repeat: no-repeat;*/
+	font-family: Impact, Helvetica, sans-serif;
+	font-size: 22px;
 }

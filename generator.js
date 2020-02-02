@@ -36,18 +36,18 @@ function make_meme(){
 	var bottomText = document.getElementById('bottomtext');
 	var bottomSize = document.getElementById("bottomsize");
 	var image = document.getElementById('image');
-	var generateButton = document.getElementById('button');
+	var generateButton = document.getElementById('generate');
 	var canvas = document.getElementById('canvas');
 	var downloadButton = document.getElementById('downloadbutton');
 
-	ctx = canvas.getContext('2d');
+	ctx = canvas.getContext('2d');		//creates object that provides methods for drawing
 
 	canvas.width = 0;
 	canvas.height = 0;
 
 
 	//generate meme button
-	generateButton.addEventListener('click', function(){
+	// generateButton.addEventListener('click', function(){
 		let reader = new FileReader();
 		reader.onload = function(){
 			let img = new Image;
@@ -55,26 +55,23 @@ function make_meme(){
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
 		};
 		reader.readAsDataURL(image.files[0]);
-	});
+	// });
 
 }
 
+makeMeme = function(generate) {
+	generate.href = make_meme();
 
-//function called when download button is clicked.
+}
+
+//function called when download button is clicked
 download_img = function(download) {					
 	var image = canvas.toDataURL("image/jpg");
 	download.href = image;
 
 }
 
-
-<<<<<<< HEAD
-=======
-// $( function() {
-//     $( "#canvas" ).draggable();
-//   } );
-
-
->>>>>>> 0667ded0d10b7c65db6b0ced5c31eeab5fa5838d
-make_meme();
+//so page doesnt have blank space for meme before generation
+canvas.width = 0;
+canvas.height = 0;
 
