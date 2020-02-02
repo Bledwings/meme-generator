@@ -36,7 +36,7 @@ function make_meme(){
 	var bottomText = document.getElementById('bottomtext');
 	var bottomSize = document.getElementById("bottomsize");
 	var image = document.getElementById('image');
-	var generateButton = document.getElementById('generate');
+	var generateButton = document.getElementById('button');
 	var canvas = document.getElementById('canvas');
 	var downloadButton = document.getElementById('downloadbutton');
 
@@ -46,7 +46,7 @@ function make_meme(){
 	canvas.height = 0;
 
 
-	generate meme button
+	//generate meme button
 	generateButton.addEventListener('click', function(){
 		let reader = new FileReader();
 		reader.onload = function(){
@@ -59,10 +59,9 @@ function make_meme(){
 
 }
 
-makeMeme = function(generate) {
-	generate.href = make_meme();
-
-}
+// makeMeme = function(generate) {
+// 	generate.href = make_meme();
+// }
 
 //function called when download button is clicked
 download_img = function(download) {					
@@ -70,9 +69,6 @@ download_img = function(download) {
 	download.href = image;
 
 }
-
-//so page doesnt have blank space for meme before generation
-canvas.width = 0;
-canvas.height = 0;
+make_meme();
 
 
