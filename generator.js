@@ -71,11 +71,8 @@ download_img = function(download) {
 
 }
 
-<<<<<<< HEAD
 //so page doesnt have blank space for meme before generation
 canvas.width = 0;
 canvas.height = 0;
-=======
-make_meme();
->>>>>>> 5d16d580f65d9bc2b6dc4644fea8e502d3dcd47c
+
 
