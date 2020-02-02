@@ -46,8 +46,8 @@ function make_meme(){
 	canvas.height = 0;
 
 
-	//generate meme button
-	// generateButton.addEventListener('click', function(){
+	generate meme button
+	generateButton.addEventListener('click', function(){
 		let reader = new FileReader();
 		reader.onload = function(){
 			let img = new Image;
@@ -55,7 +55,7 @@ function make_meme(){
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
 		};
 		reader.readAsDataURL(image.files[0]);
-	// });
+	});
 
 }
 
