@@ -13,18 +13,20 @@ function generateMeme(img, topText, topSize, bottomText){
 	ctx.strokeStyle = 'black';
 	ctx.textAlign = 'center';
 	ctx.lineWidth = fontSize / 20;
-	
+
+
+	//creates array of text seperated by newline
 	ctx.textBaseline = 'top';
-	topText.split('\n').forEach(function(t,i){
-		ctx.fillText(t, canvas.width / 2, i * fontSize , canvas.width); 		//where to draw text
-		ctx.strokeText(t, canvas.width / 2, i * fontSize , canvas.width);		//outlines for text
+	topText.split('\n').forEach(function(text,index){
+		ctx.fillText(text, canvas.width / 2, index * fontSize , canvas.width); 		
+		ctx.strokeText(text, canvas.width / 2, index * fontSize , canvas.width);		
 	});
 
 	
 	ctx.textBaseline = 'bottom';
-    bottomText.split('\n').reverse().forEach(function (t, i) { 
-        ctx.fillText(t, canvas.width / 2, canvas.height - i * fontSize, canvas.width);
-        ctx.strokeText(t, canvas.width / 2, canvas.height - i * fontSize, canvas.width);
+    bottomText.split('\n').reverse().forEach(function (text, index) { 
+        ctx.fillText(text, canvas.width / 2, canvas.height - index * fontSize, canvas.width);
+        ctx.strokeText(text, canvas.width / 2, canvas.height - index * fontSize, canvas.width);
     });
 
 }
@@ -48,7 +50,7 @@ function make_meme(){
 
 	//generate meme button
 	generateButton.addEventListener('click', function(){
-		let reader = new FileReader();
+		let reader = new FileReader();						//reader stores input file
 		reader.onload = function(){
 			let img = new Image;
 			img.src = reader.result;
@@ -59,16 +61,13 @@ function make_meme(){
 
 }
 
-// makeMeme = function(generate) {
-// 	generate.href = make_meme();
-// }
-
 //function called when download button is clicked
 download_img = function(download) {					
 	var image = canvas.toDataURL("image/jpg");
 	download.href = image;
 
 }
+
 make_meme();
 
 
