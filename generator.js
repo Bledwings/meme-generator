@@ -68,6 +68,36 @@ download_img = function(download) {
 
 }
 
+// function showTemplates() {
+// 	var generateTemplate = document.getElementById("hidden1");
+
+// 		if(generateTemplate.style.display === 'block') {
+// 			generateTemplate.style.display = 'none';
+// 		}
+
+// 		else {
+// 			generateTemplate.style.display = 'block'
+// 		}
+// }
+
+function showTemplates() {
+	var templates = document.querySelectorAll(".hiddenTemplate");
+
+	for(var i = 0; i < templates.length; i++) {
+		if(templates[i].style.display == 'inline') {
+			templates[i].style.display = 'none';
+		}
+
+		else {
+			templates[i].style.display = 'inline';
+		}
+	}
+
+
+}
+
 make_meme();
+
+
 
 
