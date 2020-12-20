@@ -1,3 +1,4 @@
+var templateNum = 0;
 
 function generateMeme(img, topText, topSize, bottomText){
 	let fontSize;
@@ -6,6 +7,10 @@ function generateMeme(img, topText, topSize, bottomText){
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.drawImage(img, 0, 0);
+
+	if(topSize == 0) {
+		return;
+	}
 
 	fontSize = canvas.width * topSize;
 	ctx.font = fontSize + 'px Impact';
@@ -47,38 +52,39 @@ function make_meme(){
 	canvas.width = 0;
 	canvas.height = 0;
 
-
 	//generate meme button
 	generateButton.addEventListener('click', function(){
-		let reader = new FileReader();						//reader stores input file
+
+		let reader = new FileReader();						
+		//using uploaded image
 		reader.onload = function(){
 			let img = new Image;
 			img.src = reader.result;
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
+			templateNum = 0;
 		};
-		reader.readAsDataURL(image.files[0]);
+
+		if(templateNum == 0) {
+			reader.readAsDataURL(image.files[0]);
+		}
+
+		//using template
+		if(templateNum != 0) {
+			templates = document.querySelectorAll(".hiddenTemplate");
+			generateMeme(templates[templateNum-1], topText.value, topSize.value, bottomText.value);
+		}
+
 	});
 
 }
 
 //function called when download button is clicked
-download_img = function(download) {					
+download_img = function(download) {		
 	var image = canvas.toDataURL("image/jpg");
+	// var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+	// window.location.href=image;
 	download.href = image;
-
 }
-
-// function showTemplates() {
-// 	var generateTemplate = document.getElementById("hidden1");
-
-// 		if(generateTemplate.style.display === 'block') {
-// 			generateTemplate.style.display = 'none';
-// 		}
-
-// 		else {
-// 			generateTemplate.style.display = 'block'
-// 		}
-// }
 
 function showTemplates() {
 	var templates = document.querySelectorAll(".hiddenTemplate");
@@ -93,10 +99,20 @@ function showTemplates() {
 		}
 	}
 
+}
 
+function useTemplate() {
+	var templates = document.querySelectorAll(".hiddenTemplate").forEach(template => {
+		template.addEventListener('click', event => {
+			generateMeme(template, "", 0, "");
+			templateNum = template.getAttribute('id');
+			document.getElementById('image').value = "";	//remove uploaded image
+		})
+	})
 }
 
 make_meme();
+useTemplate();
 
 
 
