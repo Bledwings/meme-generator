@@ -64,9 +64,7 @@ function make_meme(){
 			templateNum = 0;
 		};
 
-		if(templateNum == 0) {
-			reader.readAsDataURL(image.files[0]);
-		}
+		reader.readAsDataURL(image.files[0]);
 
 		//using template
 		if(templateNum != 0) {
@@ -81,8 +79,6 @@ function make_meme(){
 //function called when download button is clicked
 download_img = function(download) {		
 	var image = canvas.toDataURL("image/jpg");
-	// var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-	// window.location.href=image;
 	download.href = image;
 }
 
