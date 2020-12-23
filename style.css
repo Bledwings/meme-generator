@@ -4,13 +4,13 @@
 	font-size: 30px;
 }
 
-/*#hidden1 {
-	display: none;
-}
-*/
-
 .hiddenTemplate {
 	display: none;
+	cursor: pointer;
+}
+
+.hiddenTemplate:hover {
+	border: 4px solid #1E90FF;
 }
 
 #download{
