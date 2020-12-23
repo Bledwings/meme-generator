@@ -43,9 +43,9 @@ function make_meme(){
 	var bottomText = document.getElementById('bottomtext');
 	var bottomSize = document.getElementById("bottomsize");
 	var image = document.getElementById('image');
-	var generateButton = document.getElementById('button');
+	var generateButton = document.getElementById('generateButton');
 	var canvas = document.getElementById('canvas');
-	var downloadButton = document.getElementById('downloadbutton');
+	// var downloadButton = document.getElementById('downloadbutton');
 
 	ctx = canvas.getContext('2d');		//creates object that provides methods for drawing
 
@@ -77,7 +77,8 @@ function make_meme(){
 }
 
 //function called when download button is clicked
-download_img = function(download) {		
+
+function download_img(download) {		
 	var image = canvas.toDataURL("image/jpg");
 	download.href = image;
 }
@@ -103,6 +104,7 @@ function useTemplate() {
 			generateMeme(template, "", 0, "");
 			templateNum = template.getAttribute('id');
 			document.getElementById('image').value = "";	//remove uploaded image
+			showTemplates();
 		})
 	})
 }

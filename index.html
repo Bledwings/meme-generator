@@ -17,13 +17,8 @@
 	<br>
 
 	<div>
-		<button onclick="showTemplates()"> Show meme templates</button>
+		<button class="buttons" id="templateButton" onclick="showTemplates()"> Show meme templates</button>
 	</div>
-
-<!-- 
-	<div class="sample1">
-		<img id="hidden1" class="hidden" src="images/hamster.jpg" width="150" height="300"> 
-	</div> -->
 
 	<div class="templates">
 		<br>
@@ -48,16 +43,15 @@
 	</div>
 
 	<br>
-	<div class="generate">
-		<button id="button">Generate meme!</button>
-	</div>
+
+	<button class="buttons" id="generateButton">Generate meme</button>
 
 	<div class="canvas">
 		<canvas id="canvas"> </canvas>
 		<img id = "canvasImg">
 	</div>
 
-	<div class="download">
+	<div class="buttons">
 		<a id="download" download="meme.jpg" href="" onclick="download_img(this);">Download meme</a>
 	</div>
 
