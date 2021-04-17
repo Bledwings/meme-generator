@@ -74,20 +74,14 @@ function make_meme(){
 			img.src = reader.result;
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
 			templateNum = 0;
-			console.log("ran");
 		};
 		
-			if(templateNum == 0) {
-				reader.readAsDataURL(image.files[0]);
-			}
-
-		console.log(templateNum);
-
-
+		if(templateNum == 0) {
+			reader.readAsDataURL(image.files[0]);
+		}
 
 		//using template
 		if(templateNum != 0) {
-			console.log("template");
 			templates = document.querySelectorAll(".hiddenTemplate");
 			generateMeme(templates[templateNum-1], topText.value, topSize.value, bottomText.value);
 		}
@@ -98,16 +92,8 @@ function make_meme(){
 
 //function called when download button is clicked
 
-// download_img = function(download) {			
-// 	var image = canvas.toDataURL("image/png");
-// 	console.log('called');
-// 	download.href = image;
-// 	templateNum = 0;
-// }
-
 download_img = function(download) {			
 	var image = canvas.toDataURL("image/png");
-	console.log('called');
 	download.href = image;
 }
 
@@ -140,7 +126,6 @@ function useTemplate() {
 
 function resetTemplateNum() {
 	this.templateNum = 0;
-	console.log('reset');
 }
 
 useTemplate();
