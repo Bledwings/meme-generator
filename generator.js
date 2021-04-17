@@ -62,8 +62,8 @@ function make_meme(){
 			img.src = reader.result;
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
 			templateNum = 0;
-			reader.readAsDataURL(image.files[0]);
 		};
+		reader.readAsDataURL(image.files[0]);
 
 		//using template
 		if(templateNum != 0) {
