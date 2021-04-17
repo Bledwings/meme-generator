@@ -1,3 +1,15 @@
+/*
+When working locally (file://), calling toDataURL on a canvas element will throw an security error.
+	it will also throw it if using images from another site. if image is hosted on github only, it will work.
+	to fix it locally,
+
+		for firefox: got to about:config and set privacy.file_unique_origin to false
+		for chrome: add the flag --allow-file-access-from-files
+		source: https://dev.to/dengel29/loading-local-files-in-firefox-and-chrome-m9f
+*/
+
+
+
 var templateNum = 0;
 
 function generateMeme(img, topText, topSize, bottomText){
@@ -62,11 +74,20 @@ function make_meme(){
 			img.src = reader.result;
 			generateMeme(img, topText.value, topSize.value, bottomText.value);
 			templateNum = 0;
-			reader.readAsDataURL(image.files[0]);
+			console.log("ran");
 		};
+		
+			if(templateNum == 0) {
+				reader.readAsDataURL(image.files[0]);
+			}
+
+		console.log(templateNum);
+
+
 
 		//using template
 		if(templateNum != 0) {
+			console.log("template");
 			templates = document.querySelectorAll(".hiddenTemplate");
 			generateMeme(templates[templateNum-1], topText.value, topSize.value, bottomText.value);
 		}
@@ -77,10 +98,19 @@ function make_meme(){
 
 //function called when download button is clicked
 
-function download_img(download) {		
-	var image = canvas.toDataURL("image/jpg");
+// download_img = function(download) {			
+// 	var image = canvas.toDataURL("image/png");
+// 	console.log('called');
+// 	download.href = image;
+// 	templateNum = 0;
+// }
+
+download_img = function(download) {			
+	var image = canvas.toDataURL("image/png");
+	console.log('called');
 	download.href = image;
 }
+
 
 function showTemplates() {
 	var templates = document.querySelectorAll(".hiddenTemplate");
@@ -108,8 +138,13 @@ function useTemplate() {
 	})
 }
 
-make_meme();
+function resetTemplateNum() {
+	this.templateNum = 0;
+	console.log('reset');
+}
+
 useTemplate();
+make_meme();
 
 
 
