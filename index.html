@@ -5,7 +5,9 @@
 </head>
 
 <body>
-	<div class="title">
+	<div class="container">
+
+		<div class="title">
 		<h1>Meme Generator</h1>
 	</div>
 
@@ -17,7 +19,13 @@
 	<br>
 
 	<div>
-		<button class="buttons" id="templateButton" onclick="showTemplates()"> Show meme templates</button>
+		<span>
+			<button class="buttons" id="templateButton" onclick="showTemplates()"> Show meme templates</button>
+		</span>
+
+		<span>
+			<button class="buttons randomButton" id="randomButton" onclick="getRandomTemplate()"> im feeling lucky</button>
+		</span>
 	</div>
 
 	<div class="templates">
@@ -33,11 +41,17 @@
 
 	<br>
 
-	<div class="memetext">			<!--text boxes for user to enter text-->
+	<div class="memetext column1">			<!--text boxes for user to enter text-->
 		<label for="toptext">Top image text:</label>
-		<h1> <textarea	id = "toptext"> </textarea> </h1>
+			<div>
+				<textarea	id = "toptext"> </textarea>
+			</div>
+
 		<label for="bottomtext">Bottom image text:</label>
-		<h2> <textarea	id = "bottomtext" > </textarea> </h2>
+			<div>
+				<textarea	id = "bottomtext" > </textarea>
+			</div>
+
 		<!-- <p>Bottom text size: <input type="range" id="bottomsize" min = "0.05" max = "0.25" value="0.15" step="0.01"> </p> -->
 		<p>Text size: <input type="range" id="topsize" min = "0.05" max = "0.25" value="0.15" step="0.01"></p>
 
@@ -48,12 +62,14 @@
 	<button class="buttons" id="generateButton">Generate meme</button>
 
 	<div class="canvas">
-		<canvas id="canvas"> </canvas>
+		<canvas class="canvasImg" id="canvas"> </canvas>
 		<img id = "canvasImg">
 	</div>
 
-	<div class="buttons">
-		<a id="download" download="meme.jpg" href="" onclick="download_img(this);">Download meme</a>
+	<div class="buttons downloadButton">
+		<a class="downloadButton" id="download" download="meme.jpg" href="" onclick="download_img(this);">Download meme</a>
+	</div>
+
 	</div>
 
 	<script src="generator.js"> </script>

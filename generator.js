@@ -11,6 +11,7 @@ When working locally (file://), calling toDataURL on a canvas element will throw
 
 
 var templateNum = 0;
+var numOfTemplates = 0;
 
 function generateMeme(img, topText, topSize, bottomText){
 	let fontSize;
@@ -99,6 +100,17 @@ download_img = function(download) {
 
 
 function showTemplates() {
+
+	let randomButton = document.getElementById('randomButton');
+
+	if(randomButton.style.display == 'inline') {
+		randomButton.style.display = 'none';
+	}
+
+	else {
+		randomButton.style.display = 'inline';
+	}
+
 	var templates = document.querySelectorAll(".hiddenTemplate");
 
 	for(var i = 0; i < templates.length; i++) {
@@ -115,6 +127,7 @@ function showTemplates() {
 
 function useTemplate() {
 	var templates = document.querySelectorAll(".hiddenTemplate").forEach(template => {
+		numOfTemplates++;
 		template.addEventListener('click', event => {
 			generateMeme(template, "", 0, "");
 			templateNum = template.getAttribute('id');
@@ -122,6 +135,12 @@ function useTemplate() {
 			showTemplates();
 		})
 	})
+}
+
+function getRandomTemplate() {
+	let randomTemplateNum = Math.floor(Math.random()*numOfTemplates + 1);
+	console.log(randomTemplateNum);
+	let template = document.getElementById(randomTemplateNum).click();
 }
 
 function resetTemplateNum() {
